@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font: 14px/1.5;
+        }
+        a {
+            text-decoration: none;
+            color:#444
+        }
+        li {
+            list-style: none;
+        }
+        .desk, .intro-line{
+            width: 720px;
+        }
+        .intro {
+            float: left;
+            width: 220px;
+            margin-right: 20px;
+            margin-left:0px;
+        }
+        .desk {
+            margin: 0 auto;
+        }
+        .clearfix::after {
+            content:'';
+            display:block;
+            clear:both
+        }
+        /* .intro:last-child{
+            margin-left: -20px;
+        }     */
+        .nav p{
+            font-size: 30px;
+            padding: 20px;
+            color: rgba(0,0,0,0.4)
+        }
+        .intro h5{
+            font-size: 15px;
+            color: rgba(0,0,0,0.5);
+            padding: 8px;
+        }
+        .intro{
+            margin-top: 20px;
+            position:relative;
+        }
+        .intro p {
+            font-size: 14px;
+            color: red;
+            padding: 5px;
+            padding-bottom: 10px;
+        }
+        button {
+           
+            padding: 5px;
+            background-color:white;
+            border: 1px solid red;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+        .cover{
+            display:none;
+            position: absolute;
+            top: 0;
+            right:20px;
+            left: 0;
+            bottom:0;
+            opacity: 0.9; 
+             background-color: rgba(0,0,0,0.4); 
+        }
+        .btn{
+            
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 5px;
+            opacity: 1;
+            color:red;
+            background-color: white;
+            border: 1px solid red;
+        }
+        .action-delete{
+            display: block;
+        }
+        
+      
+    
+    
+    
+    </style>
+</head>
+<body>
+    <div class = 'desk'> 
+        <div class = 'nav'><p>珠宝首饰</p></div>
+        <div class = 'content'>
+            <ul class='intro-line clearfix'>
+                <li class = 'intro '>
+                    <div class="cover "><a class="btn " href="#">删除</a></div>
+                    <a href="#">
+                    <img src="https://picsum.photos/200/200/?image=1 " alt="">
+                    <h5>藏美千足金</h5>
+                    <P>￥1699.00</P>
+                    </a>
+
+                </li>
+                <li class = 'intro'>
+                    <div class="cover "><a class="btn " href="#">删除</a></div>
+                     <a href="">
+                    <img src="https://picsum.photos/200/200/?image=2 " alt="">
+                    <h5>和田玉</h5>
+                    <P>￥1699.00</P>
+                    </a>
+                </li>
+                <li class = 'intro'>
+                    <div class="cover "><a class="btn " href="#">删除</a></div>
+                    <a href="">
+                    <img src="https://picsum.photos/200/200/?image=3 " alt="">
+                    <h5>路路通吊坠</h5>
+                    <P>￥1699.00</P>
+                </a>
+                </li>
+            </ul>
+        </div>
+        <div class = 'footer'>
+            <button class = 'add'><a href="#">添加</a></button>
+            <button class = 'edit'><a href="#">编辑</a></button>
+
+        </div>
+    </div>
+
+    <script>
+        var i = 3;
+        var price = Math.floor((1-Math.random())*100)
+        $('.add').on('click',function(e){
+            i++
+            $('.intro-line').append( " <li class = 'intro'><div class='cover'><a class='btn' href='#'>删除</a></div><a href='#'>\
+            <img src='https://picsum.photos/200/200/?image="+i+"'alt=''><h5>柯南 黄金手 猴哥款</h5><P>"+ Math.floor((1-Math.random())*100)+"</P></a></li>\
+            <li class = 'intro'><div class='cover'><a class='btn' href='#'>删除</a></div><a href='#'>\
+            <img src='https://picsum.photos/200/200/?image="+(++i)+"'alt=''><h5>柯南 黄金手 猴哥款</h5><P>"+ Math.floor((1-Math.random())*100)+"</P></a></li>\
+            <li class = 'intro'><div class='cover'><a class='btn' href='#'>删除</a></div><a href='#'>\
+            <img src='https://picsum.photos/200/200/?image="+(++i)+"'alt=''><h5>柯南 黄金手 猴哥款</h5><P>"+ Math.floor((1-Math.random())*100)+"</P></a></li>");
+            $('.cover').removeClass('action-delete');
+            
+    
+        })
+        $('.footer').on('click','.edit',function(e){
+
+            $('.cover').toggleClass('action-delete')
+    
+        })
+        $('.intro-line').on('click','.btn',function(){
+            
+            $(this).parents('.intro').remove()
+        })
+    
+    
+    
+    
+    </script>
+
+
+
+
+</body>
+</html>
